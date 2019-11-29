@@ -100,14 +100,18 @@ si ...[condição]... fac
   ## Verificar se um número é par ou ímpar
 
 ```
+  # Atribuir valor de input() à variável numerus, ainda escrevendo "scribere numerus integer " no momento de input
   numerus aequipar inserta posthac die "scribere numerus integer " usque huc
   
+  #Se numerus % 2 for igual a 0 então
   si posthac die numerus recide 2 aequalis 0 usque huc fac
     sic
+      #print se o número for par
       inprimo posthac die "nec numerus impar" usque huc
     cis
   nisi fac
     sic
+      #print se o número for ímpar
       inprimo posthac die "sit numerus impar" usque huc
     cis    
 ```
