@@ -21,6 +21,18 @@ si ...[condição]... fac
 ```
   + "nisi" para se tornar o "else" seguido de ...[condição]... e "fac"
   
+  Estrutura | Latim                 | OBS
+  ----------|-----------------------|--------------
+  do        | fac                   | 
+  { ... }   | sic ... cis           |
+  if ()     | si <condição> fac     | 
+  else      | nisi fac              | 
+  for ```x``` in ```y```| per ```x``` in ```y``` fac | 
+  while ()  | dum ... fac           | 
+  return    | reditu                |
+  break     | intermissum           |
+  continue  | confectus             |
+  
 ## Operadores Matematicos
 
   Latim | Operador
