@@ -8,6 +8,13 @@ Uma linguagem de programação em latim baseada em python
   
 # Sugestões:
 
+## Entrada e saída de dados
+
+  Função  | Latim
+  --------|---------
+  input   | inserta 
+  print   | inprimo
+
 ## Condicionais e Loops de Repetição 
 
   + "{" e "}" se tornarem "sic" e "cis" respectivamente, usadas para determinar blocos de código
