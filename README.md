@@ -58,6 +58,7 @@ si ...[condição]... fac
 ## Alguns literais
 
   Latim | Literal
+  -------|-------
   verum | true
   falsus | false
   nullum | NULL
