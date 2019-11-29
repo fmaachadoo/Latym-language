@@ -23,7 +23,7 @@ si ...[condição]... fac
   
 ## Operadores Matematicos
 
-  Operador | Latim
+  Latim | Operador
   ---------|-------
   adde | +
   minuas | -
