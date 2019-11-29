@@ -30,7 +30,17 @@ si ...[condição]... fac
   multiplica | *
   divide | /
   recide | %
-  unio | &
-  intersectio | \|
+  
+  
+## Operadores Lógicos
+
+  Latim | Operador
+  ------|---------
+  maior quam | >
+  minus quam | <
+  atque | &&
+  vel | \|\|
+  non | !
+  aequalis | ==
   
   
