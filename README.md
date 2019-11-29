@@ -17,6 +17,14 @@ Os dados nessa linguagem são definidos dinâmicamente, porém é possível exec
   int      | integer
   float    | decimales
   string   | scriptum
+  
+#### Atribuir valor à uma variavel
+
+  Simbolo | Latim
+  --------|-------
+  =       | aequipar
+  (       | posthac die
+  )       | usque huc
 
 ## Entrada e saída de dados
 
@@ -86,8 +94,20 @@ si ...[condição]... fac
   ## Hello World
   
 ```
-
  inprimo "salve mundi"
+```
 
+  ## Verificar se um número é par ou ímpar
 
+```
+  numerus aequipar inserta posthac die "scribere numerus integer " usque huc
+  
+  si posthac die numerus recide 2 aequalis 0 usque huc fac
+    sic
+      inprimo posthac die "nec numerus impar" usque huc
+    cis
+  nisi fac
+    sic
+      inprimo posthac die "sit numerus impar" usque huc
+    cis    
 ```
