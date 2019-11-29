@@ -8,6 +8,16 @@ Uma linguagem de programação em latim baseada em python
   
 # Sugestões:
 
+## Tipos de dados
+
+Os dados nessa linguagem são definidos dinâmicamente, porém é possível executar TYPECAST, ou seja, converter uma variavel de um tipo para outro
+
+  Variavel | Latim
+  ---------|-------
+  int      | integer
+  float    | decimales
+  string   | scriptum
+
 ## Entrada e saída de dados
 
   Função  | Latim
