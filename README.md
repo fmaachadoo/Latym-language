@@ -70,3 +70,14 @@ si ...[condição]... fac
   falsus | false
   nullum | NULL
   etiam | ```,```
+  
+# Exemplos de Código
+
+  ## Hello World
+  
+```
+
+ inprimo "salve mundi"
+
+
+```
