@@ -55,4 +55,10 @@ si ...[condição]... fac
   non | !
   aequalis | ==
   
-  
+## Alguns literais
+
+  Latim | Literal
+  verum | true
+  falsus | false
+  nullum | NULL
+  etiam | ```,```
