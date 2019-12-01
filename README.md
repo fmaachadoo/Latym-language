@@ -4,7 +4,11 @@ Uma linguagem de programação em latim baseada em python
 # Instalando as dependências :
 
   + Instalar o Lark-parser usando pip: [Lark-Parser](https://github.com/lark-parser/lark)
-    + ``` pip install lark-parser ```
+    + ``` pip -m install lark-parser ```
+  + Instalar o click
+    + ``` pip -m install click ``` 
+  + Instalar o flit
+    + ``` pip -m install flit ``` 
 
 # Pontos importantes:
   
