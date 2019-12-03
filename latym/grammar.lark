@@ -1,0 +1,19 @@
+?start : program+
+
+?program: expr
+
+?expr : atom -> atom
+
+?atom : number
+
+?number : INT
+        | FLOAT
+        
+
+//Terminais
+INT.1     : /-?\d+/
+FLOAT.2   : /-?\d+\.\d+/
+
+
+%ignore /\s+/
+%ignore /;[^\n]*/
