@@ -15,7 +15,13 @@ class LangTransformer(InlineTransformer):
             try:
                 return float(args)
             except ValueError:
-                raise ValueError
+                if(args.type == 'STRING'):
+                    res = str(args)[1:-1]
+                    res = res.replace("\\n","\n").replace("\\t","\t").replace("\\","")
+                    return res
+                else:
+                    print("aaaaaaaaa")    
+                    raise ValueError
                 
 def parse(src: str):
     return parser.parse(src)

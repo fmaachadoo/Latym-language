@@ -2,18 +2,19 @@
 
 ?program: expr
 
-?expr : atom -> atom
+?expr : atom 
 
-?atom : number
+?atom   : STRING    -> atom
+        | number
 
 ?number : INT
         | FLOAT
         
 
 //Terminais
+STRING    : /"[^"\\]*(\\[^\n\t\r\f][^"\\]*)*"/
 INT.1     : /-?\d+/
 FLOAT.2   : /-?\d+\.\d+/
-
 
 %ignore /\s+/
 %ignore /;[^\n]*/
