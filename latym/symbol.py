@@ -46,11 +46,12 @@ Symbol.BEGIN = Symbol('begin')
 # Funções úteis
 '''
 Symbol.LIST = Symbol('list')
-Symbol.ADD = Symbol('+')
-Symbol.SUB = Symbol('-')
-Symbol.MUL = Symbol('*')
-Symbol.DIV = Symbol('/')
 '''
+Symbol.ADD = Symbol('adde')
+Symbol.SUB = Symbol('minuas')
+Symbol.MUL = Symbol('multiplica')
+Symbol.DIV = Symbol('divide')
+
 
 class _Var:
     def __getattr__(self, attr):

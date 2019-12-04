@@ -2,10 +2,16 @@
 
 ?program: expr
 
-?expr : atom 
+?expr   : parentheses? atom+ parentheses? 
 
-?atom   : STRING    -> atom
+?atom   :(STRING 
         | number
+        | operator)    -> atom
+
+?operator: /adde|minuas|multiplica|divide|recide/
+
+?parentheses:( OPEN_PARENTHESES
+            | CLOSE_PARENTHESES) 
 
 ?number : INT
         | FLOAT
@@ -15,6 +21,8 @@
 STRING    : /"[^"\\]*(\\[^\n\t\r\f][^"\\]*)*"/
 INT.1     : /-?\d+/
 FLOAT.2   : /-?\d+\.\d+/
+OPEN_PARENTHESES : "posthac die"
+CLOSE_PARENTHESES : "usque huc"
 
 %ignore /\s+/
 %ignore /;[^\n]*/

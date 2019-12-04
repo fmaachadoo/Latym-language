@@ -19,9 +19,9 @@ class LangTransformer(InlineTransformer):
                     res = str(args)[1:-1]
                     res = res.replace("\\n","\n").replace("\\t","\t").replace("\\","")
                     return res
-                else:
-                    print("aaaaaaaaa")    
-                    raise ValueError
+                else:    
+                    return Symbol(str(args))    
+          
                 
 def parse(src: str):
     return parser.parse(src)
