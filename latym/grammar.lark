@@ -9,8 +9,7 @@
         | atom
 
 ?atom   :(STRING 
-        | number
-        | OP)    -> atom
+        | number)    -> atom
 
 ?parentheses:( OPEN_PARENTHESES
             | CLOSE_PARENTHESES) 
