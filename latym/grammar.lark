@@ -3,7 +3,8 @@
 ?program: expr
 
 ?expr   : atom+
-	| parentheses expr parentheses 
+	    | parentheses expr parentheses
+        | parentheses expr parentheses operator expr
 
 ?atom   :(STRING 
         | number
