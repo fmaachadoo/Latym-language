@@ -9,5 +9,11 @@ if __name__ == "__main__":
     while src:
         src = input("Latym> ")
         if src:
-            pprint(parse(src))
+            ast = parse(src)
+            pprint(ast)
+            try:
+                print(eval(ast, env))
+            except Exception as exc:
+                print(exc.__class__.__name__, exc)
+
 

@@ -59,10 +59,9 @@ def _make_global_env():
 
     dic = {
         **vars(math), # sin, cos, sqrt, pi, ...
-        '+':op.add, '-':op.sub, '*':op.mul, '/':op.truediv, 
-        '>':op.gt, '<':op.lt, '>=':op.ge, '<=':op.le, '=':op.eq, 
-        'abs':     abs,
-        'append':  op.add,  
+        'adde':op.add, 'minuas':op.sub, 'multiplica':op.mul, 'divide':op.truediv, 
+        'maior quam':op.gt, 'minus quam':op.lt, 'maior quam vel aequalis':op.ge, 'minus quam vel aequalis':op.le, 'aequipar':op.eq, 
+        'absoluta':     abs,  
         'apply':   lambda proc, args: proc(*args),
         'begin':   lambda *x: x[-1],
         'car':     lambda x: head,

@@ -2,15 +2,15 @@
 
 ?program: expr
 
-?expr   : atom+
-	    | parentheses expr parentheses
-        | parentheses expr parentheses operator expr
+?expr   : value
+	| parentheses expr parentheses
+
+?value  : atom OP expr -> binop
+        | atom
 
 ?atom   :(STRING 
         | number
-        | operator)    -> atom
-
-?operator: /adde|minuas|multiplica|divide|recide/
+        | OP)    -> atom
 
 ?parentheses:( OPEN_PARENTHESES
             | CLOSE_PARENTHESES) 
@@ -25,6 +25,7 @@ INT.1     : /-?\d+/
 FLOAT.2   : /-?\d+\.\d+/
 OPEN_PARENTHESES : "posthac die"
 CLOSE_PARENTHESES : "usque huc"
+OP: /adde|minuas|multiplica|divide|recide/
 
 %ignore /\s+/
 %ignore /;[^\n]*/
