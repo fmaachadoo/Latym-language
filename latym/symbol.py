@@ -51,6 +51,7 @@ Symbol.ADD = Symbol('adde')
 Symbol.SUB = Symbol('minuas')
 Symbol.MUL = Symbol('multiplica')
 Symbol.DIV = Symbol('divide')
+Symbol.MOD = Symbol('recide')
 
 
 class _Var:
