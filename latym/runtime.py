@@ -27,6 +27,12 @@ def eval(x, env=None):
     elif head == Symbol.SUB:        
         op, x, y = x
         return eval(x) - eval (y)
+    elif head == Symbol.MUL:
+        op, x, y = x
+        return eval(x) * eval(y)
+    elif head == Symbol.DIV:
+        op, x, y = x
+        return eval(x) / eval(y)
     
 
 def env(*args, **kwargs):
