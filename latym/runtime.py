@@ -13,13 +13,21 @@ def eval(x, env=None):
     # Cria ambiente padrão, caso o usuário não passe o argumento opcional "env"
     if env is None:
         env = ChainMap({}, global_env)
-
     # Avalia tipos atômicos
     if isinstance(x, Symbol):
         return env[x]
     elif isinstance(x, (int, float, bool, str)):
         return x
 
+    head, *args = x
+    
+    if head == Symbol.ADD:        
+        op, x, y = x
+        return eval(x) + eval (y)
+    elif head == Symbol.SUB:        
+        op, x, y = x
+        return eval(x) - eval (y)
+    
 
 def env(*args, **kwargs):
     """

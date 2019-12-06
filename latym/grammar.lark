@@ -5,7 +5,7 @@
 ?expr   : value
 	| parentheses expr parentheses
 
-?value  : atom OP expr -> binop
+?value  : atom operator expr -> binop
         | atom
 
 ?atom   :(STRING 
@@ -16,7 +16,8 @@
 
 ?number : INT
         | FLOAT
-        
+
+?operator: OP -> op
 
 //Terminais
 STRING    : /"[^"\\]*(\\[^\n\t\r\f][^"\\]*)*"/
