@@ -52,6 +52,8 @@ Symbol.SUB = Symbol('minuas')
 Symbol.MUL = Symbol('multiplica')
 Symbol.DIV = Symbol('divide')
 Symbol.MOD = Symbol('recide')
+Symbol.PRT = Symbol('posthac die')
+
 
 
 class _Var:

@@ -2,11 +2,11 @@
 
 ?program: expr
 
-?expr   : value
-	| parentheses expr parentheses
+?expr   : value operator expr -> binop
+        | value
 
-?value  : atom operator expr -> binop
-        | atom
+?value  : atom
+        | parentheses expr parentheses -> prnthss
 
 ?atom   :(STRING 
         | number)    -> atom

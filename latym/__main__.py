@@ -10,7 +10,7 @@ if __name__ == "__main__":
         src = input("Latym> ")
         if src:
             ast = parse(src)
-            #pprint(ast)
+            ##pprint(ast)
             
             try:
                 print(eval(ast, env))

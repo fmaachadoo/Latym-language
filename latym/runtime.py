@@ -20,8 +20,17 @@ def eval(x, env=None):
         return x
 
     head, *args = x
-    
-    if head == Symbol.ADD:        
+
+    if head == Symbol.PRT:
+        x.pop(0)
+        head, *args = x
+        z = head
+        ##print(z)
+        y = eval(z)
+        return eval(y)
+
+    ##print(x)
+    if head  == Symbol.ADD:
         op, x, y = x
         return eval(x) + eval (y)
     elif head == Symbol.SUB:        
@@ -36,6 +45,8 @@ def eval(x, env=None):
     elif head == Symbol.MOD:
         op, x, y = x
         return eval(x) % eval(y)
+
+
     
 
 def env(*args, **kwargs):

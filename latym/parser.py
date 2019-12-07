@@ -20,7 +20,7 @@ class LangTransformer(InlineTransformer):
                     res = res.replace("\\n","\n").replace("\\t","\t").replace("\\","")
                     return res
                 else:    
-                    return Symbol(str(args))  
+                    return Symbol(str(args))
     
     def op(self,args):
         return Symbol(args)
@@ -29,8 +29,15 @@ class LangTransformer(InlineTransformer):
     def binop(self, left, op, right):
         op = str(op)        
         return [Symbol(op),left, right]  
-      
+    
+
+    def prnthss(self, Rparenthesis, unit, Lparenthesis):
+        Rparenthesis = str(Rparenthesis)
+        Lparenthesis = str(Lparenthesis)
+        return [Symbol(Rparenthesis), unit, Symbol(Lparenthesis)]
                 
+
+
 def parse(src: str):
     return parser.parse(src)
 
