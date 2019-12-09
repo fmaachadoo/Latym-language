@@ -1,0 +1,9 @@
+
+numerus aequipar -2
+
+si numerus maior quam 0 fac
+    sic
+      inprimo posthac die "numero maior que zero" usque huc
+    cis
+
+inprimo posthac die 2 adde 2 usque huc

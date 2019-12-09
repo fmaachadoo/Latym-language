@@ -21,6 +21,17 @@ def eval(x, env=None):
 
     head, *args = x
 
+    if head == Symbol.PRINT:
+        
+        for a in args:
+            for b in a:
+                print( eval(b,env))
+                            
+        return None
+
+    if head == Symbol.STR:        
+        return str(args)
+
     if head == Symbol.IF:
         comparsion, block = args
         if(str(comparsion)=='verum'):
@@ -55,7 +66,6 @@ def eval(x, env=None):
     if head == Symbol.VAR:
         name, expr = args
         env[name]= eval(expr, env)
-
 
     if head == Symbol.PRT:
         x.pop(0)

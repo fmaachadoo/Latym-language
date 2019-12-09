@@ -58,7 +58,8 @@ Symbol.MOD = Symbol('recide')
 Symbol.PRT = Symbol('posthac die')
 Symbol.MNQ = Symbol('minus quam')
 Symbol.MAQ = Symbol('maior quam')
-
+Symbol.PRINT = Symbol('inprimo')
+Symbol.STR = Symbol('scriptum')
 
 
 class _Var:

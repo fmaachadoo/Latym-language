@@ -27,6 +27,16 @@ class LangTransformer(InlineTransformer):
                     else:    
                         return Symbol(str(args))
     
+    def inprimo(self,*args):
+        l_parenthesis, *itens, r_parenthesis = args
+        if(str(l_parenthesis)=='posthac die') and str(r_parenthesis)=='usque huc':
+            return[Symbol.PRINT, itens]
+        else:
+            raise SyntaxError   
+
+    def string(self, text):
+        return [Symbol.STR, str(text)]
+    
     def name(self, name):
         return Symbol(name)
     

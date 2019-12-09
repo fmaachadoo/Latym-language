@@ -1,0 +1,12 @@
+mundus aequipar 50
+
+imperum aequipar 20
+
+inprimo posthac die "salve mundi" usque huc
+
+si imperum minus quam mundus fac
+    sic
+        numerus aequipar mundus minuas imperum
+    cis
+
+inprimo posthac die " STRING ALEATORIA " numerus usque huc
