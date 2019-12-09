@@ -36,7 +36,9 @@ class Symbol:
 '''
 Symbol.QUOTE = Symbol('quote')
 Symbol.LET = Symbol('let')
-Symbol.IF = Symbol('if')
+'''
+Symbol.IF = Symbol('si')
+'''
 Symbol.LAMBDA = Symbol('lambda')
 Symbol.DEFINE = Symbol('define')
 '''
@@ -53,6 +55,8 @@ Symbol.MUL = Symbol('multiplica')
 Symbol.DIV = Symbol('divide')
 Symbol.MOD = Symbol('recide')
 Symbol.PRT = Symbol('posthac die')
+Symbol.MNQ = Symbol('minus quam')
+Symbol.MAQ = Symbol('maior quam')
 
 
 

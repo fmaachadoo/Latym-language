@@ -1,15 +1,27 @@
 ?start : program+
 
 ?program: expr
+        | ifstatement
 
 ?expr   : value operator expr -> binop
         | value
+
+?ifstatement    : "si" condition "fac" block
+                | "si" BOOL "fac" block
+
+?condition  : expr COMPARE expr add_condition*
+        
+
+?add_condition : LOGICAL condition
+
+?block  : "sic" program "cis" 
 
 ?value  : atom
         | parentheses expr parentheses -> prnthss
 
 ?atom   :(STRING 
-        | number)    -> atom
+        | number
+        |BOOL)    -> atom
 
 ?parentheses:( OPEN_PARENTHESES
             | CLOSE_PARENTHESES) 
@@ -20,12 +32,16 @@
 ?operator: OP -> op
 
 //Terminais
-STRING    : /"[^"\\]*(\\[^\n\t\r\f][^"\\]*)*"/
-INT.1     : /-?\d+/
-FLOAT.2   : /-?\d+\.\d+/
+STRING      : /"[^"\\]*(\\[^\n\t\r\f][^"\\]*)*"/
+INT.1       : /-?\d+/
+FLOAT.2     : /-?\d+\.\d+/
 OPEN_PARENTHESES : "posthac die"
 CLOSE_PARENTHESES : "usque huc"
 OP: /adde|minuas|multiplica|divide|recide/
+COMPARE     : /((maior quam|minus quam)( que aequalis)?)|aequalis/
+LOGICAL     : /atque|vel/
+BOOL        : /verum|falsus/
+
 
 %ignore /\s+/
 %ignore /;[^\n]*/

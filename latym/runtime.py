@@ -21,6 +21,36 @@ def eval(x, env=None):
 
     head, *args = x
 
+    if head == Symbol.IF:
+        comparsion, block = args
+        print('239181831789237891239781278391123890182309812389012')
+        print('left, comparsion, right:')
+        print(comparsion)
+        if(str(comparsion)=='verum'):
+            return eval(block)
+        elif(str(comparsion)=='falsum'):
+            return None
+        left, comparsion_type, right = comparsion
+        print('comparsion type')
+        print(comparsion_type)
+        if(str(comparsion_type)=='maior quam'):
+            proceed =  left > right
+        elif(str(comparsion_type)=='minus quam'):
+            proceed = left < right
+        elif(str(comparsion_type)=='aequalis'):
+            proceed = left == right
+        elif(str(comparsion_type)=='maior quam que aequalis'):
+            proceed = left >= right
+        elif(str(comparsion_type)=='minus quam que aequalis'):
+            proceed = left <= right
+        else:
+            raise SyntaxError
+
+        if(proceed):
+            return eval(block)
+        else:
+            return None
+
     if head == Symbol.PRT:
         x.pop(0)
         head, *args = x

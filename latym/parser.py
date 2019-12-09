@@ -9,27 +9,46 @@ class LangTransformer(InlineTransformer):
 
     def atom(self,args):
         "Numeros se tornam números, qualquer outro token ou é uma string ou um symbol"
-        try:
-            return int(args)
-        except ValueError:
+        if(str(args)=='verum'):
+            return True
+        elif(str(args)=='falsus'):
+            return False
+        else:
             try:
-                return float(args)
+                return int(args)
             except ValueError:
-                if(args.type == 'STRING'):
-                    res = str(args)[1:-1]
-                    res = res.replace("\\n","\n").replace("\\t","\t").replace("\\","")
-                    return res
-                else:    
-                    return Symbol(str(args))
-    
+                try:
+                    return float(args)
+                except ValueError:
+                    if(args.type == 'STRING'):
+                        res = str(args)[1:-1]
+                        res = res.replace("\\n","\n").replace("\\t","\t").replace("\\","")
+                        return res
+                    else:    
+                        return Symbol(str(args))
+        
+    def condition(self, *args):
+        left, comparsion, right = args
+        print('PARSER CONDITION:')
+        print(left)
+        print(comparsion)
+        print(right)
+        return [left, Symbol(comparsion) ,right]
+
+    def ifstatement(self, condition, block):
+        print('block:')
+        print(block)
+        print('something else:')       
+        print(condition)
+        #check = eval(condition)
+        return [Symbol.IF, condition, block]
+
     def op(self,args):
         return Symbol(args)
-            
 
     def binop(self, left, op, right):
         op = str(op)        
         return [Symbol(op),left, right]  
-    
 
     def prnthss(self, Rparenthesis, unit, Lparenthesis):
         Rparenthesis = str(Rparenthesis)
