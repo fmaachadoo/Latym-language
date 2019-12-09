@@ -1,5 +1,5 @@
 
-numerus aequipar -2
+numerus aequipar 6
 
 si numerus maior quam 0 fac
     sic

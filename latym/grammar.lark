@@ -16,9 +16,9 @@
 ?ifstatement    : "si" condition "fac" block
                 | "si" BOOL "fac" block
 
-?condition  : expr COMPARE? expr
+?condition  : expr COMPARE? expr add_condition*
         
-//?add_condition : LOGICAL condition
+?add_condition : LOGICAL condition
 
 ?block  : "sic" program "cis" 
 
