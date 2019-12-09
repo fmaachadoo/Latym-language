@@ -2,26 +2,31 @@
 
 ?program: expr
         | ifstatement
+        | variable        
 
 ?expr   : value operator expr -> binop
         | value
+
+
+?variable: name "aequipar" expr -> var
 
 ?ifstatement    : "si" condition "fac" block
                 | "si" BOOL "fac" block
 
 ?condition  : expr COMPARE expr add_condition*
         
-
 ?add_condition : LOGICAL condition
 
 ?block  : "sic" program "cis" 
+
+?name   : NAME -> name
 
 ?value  : atom
         | parentheses expr parentheses -> prnthss
 
 ?atom   :(STRING 
-        | number
-        |BOOL)    -> atom
+        | number)    -> atom
+        | NAME -> name
 
 ?parentheses:( OPEN_PARENTHESES
             | CLOSE_PARENTHESES) 
@@ -31,17 +36,19 @@
 
 ?operator: OP -> op
 
+
+
 //Terminais
 STRING      : /"[^"\\]*(\\[^\n\t\r\f][^"\\]*)*"/
 INT.1       : /-?\d+/
 FLOAT.2     : /-?\d+\.\d+/
 OPEN_PARENTHESES : "posthac die"
 CLOSE_PARENTHESES : "usque huc"
-OP: /adde|minuas|multiplica|divide|recide/
-COMPARE     : /((maior quam|minus quam)( que aequalis)?)|aequalis/
-LOGICAL     : /atque|vel/
-BOOL        : /verum|falsus/
-
+OP.3: /adde|minuas|multiplica|divide|recide/
+COMPARE.5     : /((maior quam|minus quam)( que aequalis)?)|aequalis/
+LOGICAL.6     : /atque|vel/
+BOOL.4      : /verum|falsus/
+NAME.0        : /[a-zA-Z][\w\-_]*\??/
 
 %ignore /\s+/
 %ignore /;[^\n]*/

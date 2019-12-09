@@ -26,20 +26,31 @@ class LangTransformer(InlineTransformer):
                         return res
                     else:    
                         return Symbol(str(args))
-        
+    
+    def name(self, name):
+        return Symbol(name)
+    
+    def var(self, *args):
+        name, value = args
+        return [Symbol.VAR, name, value]
+
     def condition(self, *args):
         left, comparsion, right = args
+        '''
         print('PARSER CONDITION:')
         print(left)
         print(comparsion)
         print(right)
+        '''
         return [left, Symbol(comparsion) ,right]
 
     def ifstatement(self, condition, block):
+        '''
         print('block:')
         print(block)
         print('something else:')       
         print(condition)
+        '''
         #check = eval(condition)
         return [Symbol.IF, condition, block]
 

@@ -38,6 +38,7 @@ Symbol.QUOTE = Symbol('quote')
 Symbol.LET = Symbol('let')
 '''
 Symbol.IF = Symbol('si')
+Symbol.VAR = Symbol('aequipar')
 '''
 Symbol.LAMBDA = Symbol('lambda')
 Symbol.DEFINE = Symbol('define')

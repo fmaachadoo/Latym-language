@@ -23,16 +23,17 @@ def eval(x, env=None):
 
     if head == Symbol.IF:
         comparsion, block = args
-        print('239181831789237891239781278391123890182309812389012')
-        print('left, comparsion, right:')
-        print(comparsion)
         if(str(comparsion)=='verum'):
-            return eval(block)
+            return eval(block,env)
         elif(str(comparsion)=='falsum'):
             return None
-        left, comparsion_type, right = comparsion
-        print('comparsion type')
-        print(comparsion_type)
+        left, comparsion_type, right = comparsion        
+
+        #As proximas duas linhas foram para realizar o eval novamente dos atomos presentes
+        #Para que se alguma variavel especial for usada, não haja comparação de Symbol com int por exemplo
+        left = eval(left,env)
+        right = eval(right,env)
+
         if(str(comparsion_type)=='maior quam'):
             proceed =  left > right
         elif(str(comparsion_type)=='minus quam'):
@@ -47,37 +48,46 @@ def eval(x, env=None):
             raise SyntaxError
 
         if(proceed):
-            return eval(block)
+            return eval(block,env)
         else:
             return None
+
+    if head == Symbol.VAR:
+        name, expr = args
+        env[name]= eval(expr, env)
+
 
     if head == Symbol.PRT:
         x.pop(0)
         head, *args = x
         z = head
         ##print(z)
-        y = eval(z)
-        return eval(y)
+        y = eval(z,env)
+        return eval(y,env)
 
-    ##print(x)
+    ##BINOP OPERATIONS
     if head  == Symbol.ADD:
         op, x, y = x
-        return eval(x) + eval (y)
+        return eval(x,env) + eval (y,env)
     elif head == Symbol.SUB:        
         op, x, y = x
-        return eval(x) - eval (y)
+        return eval(x,env) - eval (y,env)
     elif head == Symbol.MUL:
         op, x, y = x
-        return eval(x) * eval(y)
+        return eval(x,env) * eval(y,env)
     elif head == Symbol.DIV:
         op, x, y = x
-        return eval(x) / eval(y)
+        return eval(x,env) / eval(y,env)
     elif head == Symbol.MOD:
         op, x, y = x
-        return eval(x) % eval(y)
+        return eval(x,env) % eval(y,env)
 
 
-    
+    else:
+        args = map(eval, args, [env]*len(args))
+        args = list(args)
+        return env[head](*args)
+
 
 def env(*args, **kwargs):
     """
@@ -119,7 +129,7 @@ def _make_global_env():
         **vars(math), # sin, cos, sqrt, pi, ...
         'adde':op.add, 'minuas':op.sub, 'multiplica':op.mul, 'divide':op.truediv, 
         'maior quam':op.gt, 'minus quam':op.lt, 'maior quam vel aequalis':op.ge, 'minus quam vel aequalis':op.le, 'aequipar':op.eq, 
-        'absoluta':     abs,  
+        'absoluta':     abs,
         'apply':   lambda proc, args: proc(*args),
         'begin':   lambda *x: x[-1],
         'car':     lambda x: head,
