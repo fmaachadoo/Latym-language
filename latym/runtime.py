@@ -22,14 +22,27 @@ def eval(x, env=None):
     head, *args = x
 
     if head == Symbol.PRINT:        
+        try:
+            a, *rest = args
+            b, *something = a
+            #print(something)
+            #print('something')
+            print(eval(b,env))
+            return eval([Symbol.PRINT, something])
+        except:
+            return None
+        '''
         for a in args:
-            for b in a:
-                print( eval(b,env))
+            #for b in a:
+            x = eval(a,env)
+            print('adasdasdasdas')
+            print(eval(x))
+            #print(eval(a,env))
                             
         return None
-
+        '''
     if head == Symbol.STR:        
-        return str(args)
+        return str(args).replace("[",'').replace("]",'').replace("\"",'').replace("\'",'')
 
     if head == Symbol.BOOL:
         atom, *rest = args
@@ -153,6 +166,7 @@ def _make_global_env():
         'minus quam vel aequalis':op.le, 
         'aequipar':op.eq, 
         'absoluta':     abs,
+        'begin':   lambda *x: x[-1],
         'symbol?': lambda x: isinstance(x, Symbol),
     }
     return MappingProxyType({Symbol(k): v for k, v in dic.items()})

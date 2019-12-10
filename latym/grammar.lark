@@ -9,7 +9,7 @@
         | value
         
 
-?imprimo : "inprimo" parentheses expr* parentheses -> inprimo
+?imprimo : "inprimo" parentheses expr (("."expr)*)? parentheses -> inprimo
 
 ?variable: name "aequipar" expr -> var
 
