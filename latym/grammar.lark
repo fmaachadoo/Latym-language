@@ -27,9 +27,11 @@
 ?value  : atom
         | parentheses expr parentheses -> prnthss
 
-?atom   : number    -> atom
+?atom   : FLOAT -> float
+        | INT -> int
         | STRING -> string
         | NAME -> name
+        | BOOL -> boolean
 
 ?parentheses:( OPEN_PARENTHESES
             | CLOSE_PARENTHESES) 

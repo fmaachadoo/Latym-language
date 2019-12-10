@@ -6,34 +6,16 @@ from runtime import Symbol
 class LangTransformer(InlineTransformer):
     def start(self, *args): 
         return [Symbol.BEGIN, *args]
+   
+    #Definir o tipo int da gramática
+    int = int
 
-    def atom(self,args):
-        "Numeros se tornam números, qualquer outro token ou é uma string ou um symbol"
-        if(str(args)=='verum'):
-            return True
-        elif(str(args)=='falsus'):
-            return False
-        else:
-            try:
-                return int(args)
-            except ValueError:
-                try:
-                    return float(args)
-                except ValueError:
-                    if(args.type == 'STRING'):
-                        res = str(args)[1:-1]
-                        res = res.replace("\\n","\n").replace("\\t","\t").replace("\\","")
-                        return res
-                    else:    
-                        return Symbol(str(args))
+    #Definir o tipo float da gramática
+    float = float
+
+    def boolean(self, booleana):
+        return [Symbol.BOOL, booleana]
     
-    def inprimo(self,*args):
-        l_parenthesis, *itens, r_parenthesis = args
-        if(str(l_parenthesis)=='posthac die') and str(r_parenthesis)=='usque huc':
-            return[Symbol.PRINT, itens]
-        else:
-            raise SyntaxError   
-
     def string(self, text):
         return [Symbol.STR, str(text)]
     
@@ -46,21 +28,9 @@ class LangTransformer(InlineTransformer):
 
     def condition(self, *args):
         left, comparsion, right = args
-        '''
-        print('PARSER CONDITION:')
-        print(left)
-        print(comparsion)
-        print(right)
-        '''
         return [left, Symbol(comparsion) ,right]
 
     def ifstatement(self, condition, block):
-        '''
-        print('block:')
-        print(block)
-        print('something else:')       
-        print(condition)
-        '''
         #check = eval(condition)
         return [Symbol.IF, condition, block]
 
@@ -76,6 +46,12 @@ class LangTransformer(InlineTransformer):
         Lparenthesis = str(Lparenthesis)
         return [Symbol(Rparenthesis), unit, Symbol(Lparenthesis)]
                 
+    def inprimo(self,*args):
+        l_parenthesis, *itens, r_parenthesis = args
+        if(str(l_parenthesis)=='posthac die') and str(r_parenthesis)=='usque huc':
+            return[Symbol.PRINT, itens]
+        else:
+            raise SyntaxError   
 
 
 def parse(src: str):

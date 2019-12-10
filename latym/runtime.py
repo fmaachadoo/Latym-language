@@ -21,8 +21,7 @@ def eval(x, env=None):
 
     head, *args = x
 
-    if head == Symbol.PRINT:
-        
+    if head == Symbol.PRINT:        
         for a in args:
             for b in a:
                 print( eval(b,env))
@@ -32,11 +31,18 @@ def eval(x, env=None):
     if head == Symbol.STR:        
         return str(args)
 
+    if head == Symbol.BOOL:
+        atom, *rest = args
+        if atom=='verum':
+            return True
+        else:
+            return False
+
     if head == Symbol.IF:
         comparsion, block = args
         if(str(comparsion)=='verum'):
             return eval(block,env)
-        elif(str(comparsion)=='falsum'):
+        elif(str(comparsion)=='falsus'):
             return None
         left, comparsion_type, right = comparsion        
 

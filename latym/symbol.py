@@ -33,23 +33,13 @@ class Symbol:
 
 
 # Formas especiais
-'''
-Symbol.QUOTE = Symbol('quote')
-Symbol.LET = Symbol('let')
-'''
 Symbol.IF = Symbol('si')
 Symbol.VAR = Symbol('aequipar')
-'''
-Symbol.LAMBDA = Symbol('lambda')
-Symbol.DEFINE = Symbol('define')
-'''
 Symbol.BEGIN = Symbol('begin')
 
+Symbol.BOOL = Symbol('bool')
 
 # Funções úteis
-'''
-Symbol.LIST = Symbol('list')
-'''
 Symbol.ADD = Symbol('adde')
 Symbol.SUB = Symbol('minuas')
 Symbol.MUL = Symbol('multiplica')
