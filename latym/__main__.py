@@ -2,6 +2,7 @@ import click
 from pprint import pprint
 from parser import parse as parse_src
 from runtime import eval, env
+#from . import __version__ as version
 
 '''
     from pprint import pprint

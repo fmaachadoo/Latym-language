@@ -1,6 +1,5 @@
 from lark import Lark, InlineTransformer
 from pathlib import Path
-
 from runtime import Symbol
 
 class LangTransformer(InlineTransformer):

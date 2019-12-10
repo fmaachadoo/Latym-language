@@ -1,0 +1,17 @@
+[build-system]
+requires = ["flit_core >=2,<3"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "latym"
+author = "Filipe Machado"
+author-email = "filipe__machado@hotmail.com"
+classifiers = ["License :: OSI Approved :: MIT License"]
+
+requires = [
+    "click",
+    "lark-parser",
+]
+
+[tool.flit.scripts]
+latym = "latym.__main__:main"

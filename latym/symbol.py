@@ -1,8 +1,4 @@
 class Symbol:
-    """
-    Representa um símbolo Lisp.
-    Diferentemente de strings, símbolos com o mesmo valor possuem a mesma identidade.
-    """
 
     data : str
     CACHE = {}

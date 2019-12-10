@@ -31,16 +31,7 @@ def eval(x, env=None):
             return eval([Symbol.PRINT, something])
         except:
             return None
-        '''
-        for a in args:
-            #for b in a:
-            x = eval(a,env)
-            print('adasdasdasdas')
-            print(eval(x))
-            #print(eval(a,env))
-                            
-        return None
-        '''
+
     if head == Symbol.STR:        
         return str(args).replace("[",'').replace("]",'').replace("\"",'').replace("\'",'')
 
