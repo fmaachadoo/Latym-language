@@ -8,12 +8,40 @@ Uma linguagem de programação em latim baseada em python
     
   + Instalar o Click
     + ``` pip3 install click ```
+  
+  + Instalar o pytest
+    + ``` pip3 install pytest ```
+    
+  + Instalar o flit
+    + ``` pip3 install flit ```
 
-# Pontos importantes:
+# Executando :
+  É possível usar essa lingaguem de dois modos, no modo interativo e no modo não-interativo(lendo código de algum arquivo)
+  
+  ## Modo interativo
+  
+  + Basta executar o comando ```python3 latym``` na pasta raíz deste repositório
+  + Pronto, o terminal mostrará algo assim esperando algum input:
+    + ```latym> ```
+    
+  ## Modo não-interativo
+  
+  + Execute o mesmo comando do modo interativo porém use o nome do arquivo a ser lido como parâmetro
+    + Assim: ```python3 latym script.txt``` como por exemplo
+  
+  ## Testes
+  
+  + É possível realizar testes unitários usando o pytest, basta usar o comando ```pytest latym/test_basic.py```
+
+<hr>
+<hr>
+
+# Sugestões:
+
+### Pontos importantes:
   
   + Fazer com que não haja simbolos tipo "{", "}", ",", ":", "(", ")" por exemplo, ou seja, todo o código escrito com palavras.
   
-# Sugestões:
 
 ## Tipos de dados
 
