@@ -73,7 +73,11 @@ def eval(x, env=None):
         return None        
         
     if head == Symbol.WHILE:
-        comparsion, block = args   
+        comparsion, block = args
+        if(str(comparsion)=='verum'):
+            return eval(block,env)
+        elif(str(comparsion)=='falsus'):
+            return None     
         while(eval(comparsion,env)):
             eval(block,env)
         return None    
