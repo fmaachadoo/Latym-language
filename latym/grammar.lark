@@ -3,11 +3,13 @@
 ?program: expr
         | ifstatement
         | variable
-        | imprimo        
+        | imprimo
+        | loopdum        
 
 ?expr   : value operator expr -> binop
         | value
         
+?loopdum    : "dum" condition "fac" block
 
 ?imprimo : "inprimo" parentheses expr (("."expr)*)? parentheses -> inprimo
 
@@ -16,11 +18,9 @@
 ?ifstatement    : "si" condition "fac" block
                 | "si" BOOL "fac" block
 
-?condition  : expr COMPARE? expr add_condition*
-        
-?add_condition : LOGICAL condition
+?condition  : expr COMPARE? expr
 
-?block  : "sic" program "cis" 
+?block  : "sic" (program ".")* "cis" -> block
 
 ?name   : NAME -> name
 
@@ -50,7 +50,7 @@ FLOAT.2     : /-?\d+\.\d+/
 OPEN_PARENTHESES : "posthac die"
 CLOSE_PARENTHESES : "usque huc"
 OP.3: /adde|minuas|multiplica|divide|recide/
-COMPARE     : /((maior quam|minus quam)( que aequalis)?)|aequalis/
+COMPARE     : /(maior quam|minus quam|aequalis|non aequalis)/
 LOGICAL     : /atque|vel/
 BOOL.1     : /verum|falsus/
 NAME.0        : /[a-zA-Z][\w\-_]*\??/

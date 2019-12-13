@@ -28,12 +28,14 @@ def eval(x, env=None):
             #print(something)
             #print('something')
             print(eval(b,env))
-            return eval([Symbol.PRINT, something])
+            return eval([Symbol.PRINT, something],env)
         except:
             return None
 
-    if head == Symbol.STR:        
-        return str(args).replace("[",'').replace("]",'').replace("\"",'').replace("\'",'')
+    if head == Symbol.STR:
+        word, *rest = args        
+        return str(word).replace("\"","")
+        #return str(args).replace("[",'').replace("]",'').replace("\"",'').replace("\'",'')
 
     if head == Symbol.BOOL:
         atom, *rest = args
@@ -42,32 +44,51 @@ def eval(x, env=None):
         else:
             return False
 
+    if head == Symbol.COMPARE:
+        left, comparsion, right = args
+        left = eval(left,env)
+        right = eval(right,env)
+
+        if(str(comparsion)=='maior quam'):
+            proceed =  left > right
+        elif(str(comparsion)=='minus quam'):
+            proceed = left < right
+        elif(str(comparsion)=='aequalis'):
+            proceed = left == right
+        elif(str(comparsion)=='non aequalis'):
+            proceed = left != right
+        else:
+            raise SyntaxError
+
+        if proceed:
+            return True 
+        else:
+            return False
+
+    if head == Symbol.BLOCK:
+        for command_lines in args:
+            #print(command)
+            for command in command_lines:                
+                eval(command,env)
+        return None        
+        
+    if head == Symbol.WHILE:
+        comparsion, block = args
+        if(str(comparsion)=='verum'):
+            return eval(block,env)
+        elif(str(comparsion)=='falsus'):
+            return None     
+        while(eval(comparsion,env)):
+            eval(block,env)
+        return None    
+
     if head == Symbol.IF:
         comparsion, block = args
         if(str(comparsion)=='verum'):
             return eval(block,env)
         elif(str(comparsion)=='falsus'):
-            return None
-        left, comparsion_type, right = comparsion        
-
-        #As proximas duas linhas foram para realizar o eval novamente dos atomos presentes
-        #Para que se alguma variavel especial for usada, não haja comparação de Symbol com int por exemplo
-        left = eval(left,env)
-        right = eval(right,env)
-
-        if(str(comparsion_type)=='maior quam'):
-            proceed =  left > right
-        elif(str(comparsion_type)=='minus quam'):
-            proceed = left < right
-        elif(str(comparsion_type)=='aequalis'):
-            proceed = left == right
-        elif(str(comparsion_type)=='maior quam que aequalis'):
-            proceed = left >= right
-        elif(str(comparsion_type)=='minus quam que aequalis'):
-            proceed = left <= right
-        else:
-            raise SyntaxError
-
+            return None        
+        proceed = eval(comparsion,env)                
         if(proceed):
             return eval(block,env)
         else:
@@ -81,7 +102,7 @@ def eval(x, env=None):
         x.pop(0)
         head, *args = x
         z = head
-        ##print(z)
+        #print(z)
         y = eval(z,env)
         return eval(y,env)
 

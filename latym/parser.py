@@ -25,9 +25,15 @@ class LangTransformer(InlineTransformer):
         name, value = args
         return [Symbol.VAR, name, value]
 
+    def block(self, *args):
+        return [Symbol.BLOCK, args]
+
     def condition(self, *args):
         left, comparsion, right = args
-        return [left, Symbol(comparsion) ,right]
+        return [Symbol.COMPARE,left, Symbol(comparsion) ,right]
+
+    def loopdum(self, condition, block):
+        return [Symbol.WHILE, condition, block]
 
     def ifstatement(self, condition, block):
         #check = eval(condition)
