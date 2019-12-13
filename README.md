@@ -33,11 +33,57 @@ Uma linguagem de programação em latim baseada em python
   
   + É possível realizar testes unitários usando o pytest, basta usar o comando ```pytest latym/test_basic.py```
 
+# Exemplos de Código
+
+  ## Hello World
+  
+```
+ inprimo "salve mundi"
+```
+
+  ## Verificar se um número é par ou ímpar
+
+```
+  numerus aequipar 7
+
+resultado aequipar numerus recide 2
+
+inprimo posthac die "Verificar se o número é par" usque huc
+
+inprimo posthac die "O número é: " . numerus usque huc
+
+si resultado aequalis 0 fac
+  sic
+    inprimo posthac die "O número é par" usque huc .
+  cis
+
+si resultado non aequalis 0 fac
+  sic
+    inprimo posthac die "O número é impar" usque huc .
+  cis
+  
+```
+
+  ## Contar de 0 até 33 de 3 em 3 números
+
+```
+
+contagem aequipar 0
+
+dum contagem minus quam 33 fac
+    sic
+        contagem aequipar contagem adde 3 .
+        inprimo posthac die contagem usque huc .
+    cis
+    
+ ```
+
+
 <hr>
 <hr>
 
 # Sugestões:
-
+Tais sugestões servem para possíveis implementações futuras
 ### Pontos importantes:
   
   + Fazer com que não haja simbolos tipo "{", "}", ",", ":", "(", ")" por exemplo, ou seja, todo o código escrito com palavras.
@@ -124,29 +170,4 @@ si ...[condição]... fac
   nullum | NULL
   etiam | ```,```
   
-# Exemplos de Código
 
-  ## Hello World
-  
-```
- inprimo "salve mundi"
-```
-
-  ## Verificar se um número é par ou ímpar
-
-```
-  # Atribuir valor de input() à variável numerus, ainda escrevendo "scribere numerus integer " no momento de input
-  numerus aequipar inserta posthac die "scribere numerus integer " usque huc
-  
-  #Se numerus % 2 for igual a 0 então
-  si posthac die numerus recide 2 aequalis 0 usque huc fac
-    sic
-      #print se o número for par
-      inprimo posthac die "nec numerus impar" usque huc
-    cis
-  nisi fac
-    sic
-      #print se o número for ímpar
-      inprimo posthac die "sit numerus impar" usque huc
-    cis    
-```
