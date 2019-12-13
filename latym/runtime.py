@@ -28,12 +28,14 @@ def eval(x, env=None):
             #print(something)
             #print('something')
             print(eval(b,env))
-            return eval([Symbol.PRINT, something])
+            return eval([Symbol.PRINT, something],env)
         except:
             return None
 
-    if head == Symbol.STR:        
-        return str(args).replace("[",'').replace("]",'').replace("\"",'').replace("\'",'')
+    if head == Symbol.STR:
+        word, *rest = args        
+        return str(word).replace("\"","")
+        #return str(args).replace("[",'').replace("]",'').replace("\"",'').replace("\'",'')
 
     if head == Symbol.BOOL:
         atom, *rest = args
@@ -61,10 +63,8 @@ def eval(x, env=None):
             proceed = left < right
         elif(str(comparsion_type)=='aequalis'):
             proceed = left == right
-        elif(str(comparsion_type)=='maior quam que aequalis'):
-            proceed = left >= right
-        elif(str(comparsion_type)=='minus quam que aequalis'):
-            proceed = left <= right
+        elif(str(comparsion_type)=='non aequalis'):
+            proceed = left != right
         else:
             raise SyntaxError
 
@@ -81,7 +81,7 @@ def eval(x, env=None):
         x.pop(0)
         head, *args = x
         z = head
-        ##print(z)
+        #print(z)
         y = eval(z,env)
         return eval(y,env)
 
