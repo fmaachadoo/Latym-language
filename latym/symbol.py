@@ -32,6 +32,8 @@ class Symbol:
 Symbol.IF = Symbol('si')
 Symbol.VAR = Symbol('aequipar')
 Symbol.BEGIN = Symbol('begin')
+Symbol.WHILE = Symbol('dum')
+Symbol.BLOCK = Symbol('block')
 
 Symbol.BOOL = Symbol('bool')
 
@@ -42,6 +44,7 @@ Symbol.MUL = Symbol('multiplica')
 Symbol.DIV = Symbol('divide')
 Symbol.MOD = Symbol('recide')
 Symbol.PRT = Symbol('posthac die')
+Symbol.COMPARE = Symbol('condition')
 Symbol.MNQ = Symbol('minus quam')
 Symbol.MAQ = Symbol('maior quam')
 Symbol.PRINT = Symbol('inprimo')

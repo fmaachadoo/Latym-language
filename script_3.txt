@@ -1,0 +1,7 @@
+contagem aequipar 0
+
+dum contagem minus quam 33 fac
+    sic
+        contagem aequipar contagem adde 3 .
+        inprimo posthac die contagem usque huc .
+    cis

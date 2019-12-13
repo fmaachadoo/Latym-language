@@ -3,11 +3,13 @@
 ?program: expr
         | ifstatement
         | variable
-        | imprimo        
+        | imprimo
+        | loopdum        
 
 ?expr   : value operator expr -> binop
         | value
         
+?loopdum    : "dum" condition "fac" block
 
 ?imprimo : "inprimo" parentheses expr (("."expr)*)? parentheses -> inprimo
 
@@ -18,7 +20,7 @@
 
 ?condition  : expr COMPARE? expr
 
-?block  : "sic" program "cis" 
+?block  : "sic" (program ".")* "cis" -> block
 
 ?name   : NAME -> name
 

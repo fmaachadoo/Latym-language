@@ -9,11 +9,11 @@ inprimo posthac die "O número é: " . numerus usque huc
 
 si resultado aequalis 0 fac
   sic
-    inprimo posthac die "O número é par" usque huc
+    inprimo posthac die "O número é par" usque huc .
   cis
 
 si resultado non aequalis 0 fac
   sic
-    inprimo posthac die "O número é impar" usque huc
+    inprimo posthac die "O número é impar" usque huc .
   cis
 

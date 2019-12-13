@@ -44,30 +44,47 @@ def eval(x, env=None):
         else:
             return False
 
+    if head == Symbol.COMPARE:
+        left, comparsion, right = args
+        left = eval(left,env)
+        right = eval(right,env)
+
+        if(str(comparsion)=='maior quam'):
+            proceed =  left > right
+        elif(str(comparsion)=='minus quam'):
+            proceed = left < right
+        elif(str(comparsion)=='aequalis'):
+            proceed = left == right
+        elif(str(comparsion)=='non aequalis'):
+            proceed = left != right
+        else:
+            raise SyntaxError
+
+        if proceed:
+            return True 
+        else:
+            return False
+
+    if head == Symbol.BLOCK:
+        for command_lines in args:
+            #print(command)
+            for command in command_lines:                
+                eval(command,env)
+        return None        
+        
+    if head == Symbol.WHILE:
+        comparsion, block = args   
+        while(eval(comparsion,env)):
+            eval(block,env)
+        return None    
+
     if head == Symbol.IF:
         comparsion, block = args
         if(str(comparsion)=='verum'):
             return eval(block,env)
         elif(str(comparsion)=='falsus'):
-            return None
-        left, comparsion_type, right = comparsion        
-
-        #As proximas duas linhas foram para realizar o eval novamente dos atomos presentes
-        #Para que se alguma variavel especial for usada, não haja comparação de Symbol com int por exemplo
-        left = eval(left,env)
-        right = eval(right,env)
-
-        if(str(comparsion_type)=='maior quam'):
-            proceed =  left > right
-        elif(str(comparsion_type)=='minus quam'):
-            proceed = left < right
-        elif(str(comparsion_type)=='aequalis'):
-            proceed = left == right
-        elif(str(comparsion_type)=='non aequalis'):
-            proceed = left != right
-        else:
-            raise SyntaxError
-
+            return None        
+        proceed = eval(comparsion,env)                
         if(proceed):
             return eval(block,env)
         else:
